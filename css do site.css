@@ -1,0 +1,134 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+header {
+    background-color: #8b5a2b;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 200px;
+    height: 100vh;
+    vertical-align: middle;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 35px auto;
+}
+
+.product {
+    background-color: #7a7373;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.product h2 {
+    color: #8b5a2b;
+    font-size: 1.5rem;
+}
+
+.product p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.product button {
+    background-color: #8b5a2b;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #654024;
+}
+
+.carrinho {
+    background-color: #f5e7dc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.carrinho h2 {
+    color: #8b5a2b;
+    margin-bottom: 10px;
+}
+
+.carrinho-total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.parcelamento {
+    margin-top: 20px;
+}
+
+#cartao,
+#cvv {
+    margin-top: 10px;
+    width: 10%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#comprar {
+    margin-top: 10px;
+    background-color: #8b5a2b;
+    color: #f5e7dc;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#comprar:hover {
+    background-color: #654024;
+}
+
+.search {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #8b5a2b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #654024;
+}
