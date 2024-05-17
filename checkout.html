@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        header {
+            background-color: #8b5a2b;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .total, .parcelamento {
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            background-color: #8b5a2b;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #654024;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1></h1>
+    </header>
+    <div class="container">
+        <div class="total">
+            <h2>Total: R$<span id="totalCompra"></span></h2>
+        </div>
+        <div class="parcelamento">
+            <h2>Parcelamento</h2>
+            
+            
+            <p><span id="parcelas"></span> parcelas de R$<span id="valorParcela"></span></p>
+        </div>
+
+        <div id="loader" style="display: none;">
+            <img src="carrhtml.webp" alt="Carregando...">
+        </div>
+    
+
+        
+        <button class="back-button" onclick="voltar()">Voltar</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const totalCompra = localStorage.getItem('totalCompra');
+            const parcelas = localStorage.getItem('parcelas');
+            const valorParcela = (totalCompra / parcelas).toFixed(2);
+
+            document.getElementById('totalCompra').textContent = totalCompra;
+            document.getElementById('parcelas').textContent = parcelas;
+            document.getElementById('valorParcela').textContent = valorParcela;
+        });
+
+        function voltar() {
+            window.location.href = 'index9.html';
+        }
+    </script>
+</body>
+</html>

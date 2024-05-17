@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja</title>
+    <style>
+              body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+header {
+    background-color: #8b5a2b;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 200px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 35px auto;
+}
+
+.product {
+    background-color: #ece9e9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.product h2 {
+    color: #8b5a2b;
+    font-size: 1.5rem;
+}
+
+.product p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.product button {
+    background-color: #8b5a2b;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+    background-color: #654024;
+}
+
+.carrinho {
+    background-color: #f5e7dc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.carrinho h2 {
+    color: #8b5a2b;
+    margin-bottom: 10px;
+}
+
+.carrinho-total {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.parcelamento {
+    margin-top: 20px;
+}
+
+#cartao,
+#cvv {
+    margin-top: 10px;
+    width: 10%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#comprar {
+    margin-top: 10px;
+    background-color: #8b5a2b;
+    color: #f5e7dc;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#comprar:hover {
+    background-color: #654024;
+}
+
+.search {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.search input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #8b5a2b;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #654024;
+}
+
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7); 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; 
+        }
+        
+        #loader img {
+            width: 100px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="gnomologo.png">
+        </div>
+        <h1></h1>
+    </header>
+
+    <div class="search">
+        <input type="text" placeholder="Pesquisar...">
+        <button class="search-button">Pesquisar</button>
+    </div>
+
+    <div class="container">
+        <div class="product">
+            <div class="logo">
+                <img src="gn1.png.png">
+            </div>
+            <h2>Gnomo jailson</h2>
+            <p>uber nas horas vagas </p>
+            <p>Preço: R$293.00</p>
+            <button onclick="adicionarAoCarrinho('gnomo jailson', 293)">Comprar</button>
+        </div>
+
+        <div class="product">
+            <div class="logo">
+                <img src="gnomom 2.png">
+            </div>
+            <h2>Gnomo medieval</h2>
+            <p>gosta de castelos e festas</p>
+            <p>Preço: R$325.00</p>
+            <button onclick="adicionarAoCarrinho('gnomo medieval', 325)">Comprar</button>
+        </div>
+
+        <div class="product">
+            <div class="logo">
+                <img src="gnomo 3.png">
+            </div>
+            <h2>Gnomo noia</h2>
+            <p>usuario de intorpesentes forte</p>
+            <p>Preço: R$150.00</p>
+            <button onclick="adicionarAoCarrinho('gnomo noia', 150)">Comprar</button>
+        </div>
+    </div>
+
+    <div class="carrinho" id="carrinho">
+        <h2>Carrinho de Compras</h2>
+        <ul id="itens-carrinho"></ul>
+        <div class="carrinho-total" id="total-carrinho">Total: R$<span id="totalCompra">0.00</span></div>
+        <div class="parcelamento">
+            <label for="parcelas">Parcelas:</label>
+            <select id="parcelas">
+                <option value="1">1x</option>
+                <option value="2">2x</option>
+                <option value="3">3x</option>
+                <option value="4">4x</option>
+                <option value="5">5x</option>
+                <option value="6">6x</option>
+                <option value="7">7x</option>
+                <option value="8">8x</option>
+                <option value="9">9x</option>
+                <option value="10">10x</option>
+            </select>
+        </div>
+        <p id="mensagem-cartao">Adicione seu cartão aqui:</p>
+        <input type="text" id="cartao" placeholder="Número do cartão" maxlength="13">
+        <p id="mensagem-cvv">Coloque seu CVV:</p>
+        <input type="text" id="cvv" placeholder="CVV" maxlength="3">
+      
+        <button id="comprar" onclick="finalizarCompra()">confirmar e finalizar</button>
+    </div>
+
+    <div id="loader" style="display: none;">
+        <img src="carrhtml.webp" alt="Carregando...">
+    </div>
+
+    <script>
+        let totalCompra = 0;
+
+        function adicionarAoCarrinho(produto, preco) {
+            totalCompra += preco;
+            document.getElementById("itens-carrinho").innerHTML += `<li>${produto} - 1x</li>`;
+            document.getElementById("totalCompra").textContent = totalCompra.toFixed(2);
+        }
+
+        function finalizarCompra() {
+            const parcelas = document.getElementById("parcelas").value;
+
+           
+            localStorage.setItem('totalCompra', totalCompra.toFixed(2));
+            localStorage.setItem('parcelas', parcelas);
+
+            
+            window.location.href = 'checkout.html';
+        }
+    </script>
+    <h2>CRIADO POR: Brayan Ferreira & Gabri
