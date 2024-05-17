@@ -255,23 +255,23 @@ header {
             const parcelas = document.getElementById("parcelas").value;
             const totalParcela = (totalCompra / parcelas).toFixed(2);
             
-            // Exibir tela de carregamento
+           
             document.getElementById("loader").style.display = "flex";
 
-            // Simular atraso para a finalização da compra (2 segundos)
+           
             setTimeout(function() {
                 alert(`Compra finalizada! Sua compra ficou em R$${totalCompra.toFixed(2)} parcelada em ${parcelas} vezes. O total de cada parcela é R$${totalParcela}`);
                 
-                // Limpar carrinho e total após a compra
+                
                 totalCompra = 0;
                 document.getElementById("itens-carrinho").innerHTML = "";
                 document.getElementById("totalCompra").textContent = totalCompra.toFixed(2);
                 
-                // Limpar campos de cartão e CVV
+                
                 document.getElementById("cartao").value = "";
                 document.getElementById("cvv").value = "";
 
-                // Esconder tela de carregamento
+               
                 document.getElementById("loader").style.display = "none";
             }, 2000);
         }
